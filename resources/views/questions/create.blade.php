@@ -19,18 +19,18 @@
                     @csrf
                         <div class="form-group">
                             <label for="question-title">Question Title: </label>
-                            <input type="text" name="title" id="question-title" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" place-holder="Title">
+                            <input type="text" name="title" value="{{old('title')}}" id="question-title" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" place-holder="Title">
                             @if($errors->has('title'))
-                                <div class="invadid-feedback">
+                                <div class="invalid-feedback">
                                     <strong>{{$errors->first('title')}}</strong>
                                 </div> 
                             @endif
                         </div>
                         <div class="form-group">
                             <label for="question-body">Explain About Question: </label>
-                            <textarea name="body" id="question-body" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="body" id="question-body" cols="30" rows="10" class="form-control {{$errors->has('body') ? 'is-invalid' : ''}}">{{old('body')}}</textarea>
                             @if($errors->has('body'))
-                                <div class="invadid-feedback">
+                                <div class="invalid-feedback">
                                     <strong>{{$errors->first('body')}}</strong>
                                 </div>
                             @endif
